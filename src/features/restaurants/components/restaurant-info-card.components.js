@@ -4,6 +4,7 @@ import { Text, Image, View } from "react-native";
 import {Card} from "react-native-paper";
 import { SvgXml } from 'react-native-svg';
 
+import { Spacer } from "../../../components/spacer/spacer.component";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
@@ -50,12 +51,12 @@ const SectionEnd = styled.View`
 
 export const RestaurantInfoCard = ({restaurant = {}}) => {
     const {
-        name = 'Some Restaurant in Tahiti',
+        name = 'Some Restaurant in Geneva',
         icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = ["https://ehs.stonybrook.edu/programs/_images/Food.jpg"],
         address = '100 some random street',
         isOpenNow = true,
-        rating = 4,
+        rating = 5,
         isClosedTemporarily = true
     } = restaurant;
 
@@ -78,14 +79,16 @@ export const RestaurantInfoCard = ({restaurant = {}}) => {
                                 CLOSED TEMPORARILY
                             </Text>
                         )}
-                        <View style={{ paddingLeft: 8 }} />
-                        {isOpenNow && <SvgXml xml={open} width={20} height={20}/>}
-                        <View style={{ paddingLeft: 8 }} />
-                        <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+                        <Spacer position="left" size="small">
+                            {isOpenNow && <SvgXml xml={open} width={20} height={20}/>}
+                        </Spacer>
+                        <Spacer position="left" size="small">
+                            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+                        </Spacer>
                     </SectionEnd>
                 </Section>                
                 <Address>{address}</Address>
             </Info>
         </RestaurantCard>
-    )
+    );
 };
