@@ -1,7 +1,12 @@
-import * as React from 'react';
+import React from 'react';
+import { Text } from 'react-native'
 import { ThemeProvider } from 'styled-components/native';
 import { RestaurantsScreen } from './src/features/restaurants/screens/restaurants.screen';
 import { theme } from './src/infrastructure/theme'
+import { SafeArea } from './src/components/utility/safe-area.component';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {
   useFonts as useOswald,
@@ -27,10 +32,36 @@ export default function App() {
     return null;
   }
 
-  return (
+const MapScreen = () => {
+    return (
+      <SafeArea>
+        <Text>Map!</Text>
+      </SafeArea>
+    );
+}
+  
+const SettingsScreen = () => {
+    return (
+      <SafeArea>
+        <Text>Settings!</Text>
+      </SafeArea>
+    );
+}
+
+const Tab = createBottomTabNavigator();
+
+
+{/* Need headerShown option otherwise it will show header at the top */}
+ return (   
     <>
     <ThemeProvider theme={theme}>
-      <RestaurantsScreen />
+      <NavigationContainer>
+        <Tab.Navigator screenOptions={{ headerShown: false }}> 
+          <Tab.Screen name="Restaurant" component={RestaurantsScreen} />
+          <Tab.Screen name="Map" component={MapScreen} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
     </ThemeProvider>
     </>
   );

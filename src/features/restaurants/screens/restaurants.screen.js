@@ -5,12 +5,9 @@ import { StatusBar, Text, View, SafeAreaView, FlatList } from 'react-native';
 import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { RestaurantInfoCard } from '../components/restaurant-info-card.components';
+import { SafeArea } from '../../../components/utility/safe-area.component';
 
-const SafeArea = styled(SafeAreaView)`
-    flex: 1;
-    ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`;
-//currentHeight is not defined for ios
+
 
 const SearchContainer = styled.View`
     padding: ${(props) => props.theme.space[3]};
