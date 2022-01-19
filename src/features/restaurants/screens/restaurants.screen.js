@@ -21,20 +21,25 @@ const RestaurantListContainer = styled.View`
     padding: ${(props) => props.theme.space[3]};
 `
 
+const RestaurantList = styled(FlatList).attrs({
+    contentContainerStyle : {padding: 16},
+})``;
+// Dont full understand this. Section-140
+
+
 export const RestaurantsScreen = () => (     
     <SafeArea>
         <SearchContainer>
             <Searchbar placeholder="Search" />
         </SearchContainer>
-        <FlatList
+        <RestaurantList
             data={[{name: 1}, {name: 2}, {name: 3}, {name: 4}, {name: 5}, {name: 6}]}
             renderItem={() => (
                 <Spacer position="bottom" size="large">
                     <RestaurantInfoCard/>
                 </Spacer>
             )}
-            keyExtractor={(item) => item.name}
-            contentContainerStyle={{padding: 16}}
+            keyExtractor={(item) => item.name}            
         />
     </SafeArea>  
 );
