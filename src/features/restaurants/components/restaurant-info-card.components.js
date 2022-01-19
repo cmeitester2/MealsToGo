@@ -23,7 +23,7 @@ import { Icon,
 
 export const RestaurantInfoCard = ({restaurant = {}}) => {
     const {
-        name = 'Some Restaurant in Geneva',
+        name = 'Some Restaurant in Mumbai',
         icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = ["https://ehs.stonybrook.edu/programs/_images/Food.jpg"],
         address = '100 some random street',
