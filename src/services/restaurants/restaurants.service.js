@@ -11,7 +11,7 @@ export const restaurantRequest = (location = "37.7749295,-122.4194155") => {
     });
 };
 
-const restaurantsTransform = ({ results = [] }) => {
+export const restaurantsTransform = ({ results = [] }) => {
     // The argument to this function which is the entire data for a location
     // has a property called result that is being desctructred here   
 

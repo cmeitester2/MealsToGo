@@ -14,6 +14,8 @@ import { SafeArea } from './src/components/utility/safe-area.component';
 
 import { restaurantRequest } from './src/services/restaurants/restaurants.service'
 
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context';
+
 
 
 import {
@@ -64,6 +66,7 @@ const Tab = createBottomTabNavigator();
  return (   
     <>
     <ThemeProvider theme={theme}>
+      <RestaurantsContextProvider>
       <NavigationContainer>
         <Tab.Navigator screenOptions={ ({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -90,6 +93,7 @@ const Tab = createBottomTabNavigator();
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
       </NavigationContainer>
+      </RestaurantsContextProvider>
     </ThemeProvider>
     </>
   );
