@@ -12,6 +12,8 @@ import { RestaurantsScreen } from './src/features/restaurants/screens/restaurant
 import { theme } from './src/infrastructure/theme'
 import { SafeArea } from './src/components/utility/safe-area.component';
 
+import { restaurantRequest } from './src/services/restaurants/restaurants.service'
+
 
 
 import {
